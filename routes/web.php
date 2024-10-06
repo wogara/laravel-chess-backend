@@ -9,6 +9,6 @@ Route::get('/', function () {
 });
 
 Route::get('test', function() {
-    event(new MoveEvent('hello from web.php', 3));
+    event(new MoveEvent('hello from web.php'));
     return 'done';
 });

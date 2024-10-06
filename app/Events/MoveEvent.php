@@ -15,15 +15,13 @@ class MoveEvent implements ShouldBroadcast
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $data;
-    public $userID;
 
     /**
      * Create a new event instance.
      */
-    public function __construct($data, $userID)
+    public function __construct($data)
     {
         $this->data = $data;
-        $this->userID = $userID;
     }
 
     /**
@@ -34,7 +32,7 @@ class MoveEvent implements ShouldBroadcast
     public function broadcastOn(): array
     {
         return [
-            new PrivateChannel('my-private-channel.user.' . $this->userID),
+            new Channel('public-channel'),
         ];
     }
 }

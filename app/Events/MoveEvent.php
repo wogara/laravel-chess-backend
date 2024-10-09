@@ -9,6 +9,7 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
 class MoveEvent implements ShouldBroadcast
 {
@@ -21,6 +22,7 @@ class MoveEvent implements ShouldBroadcast
      */
     public function __construct($data)
     {
+	Log::info('MoveEvent Triggered', ['data' => $data]);
         $this->data = $data;
     }
 
